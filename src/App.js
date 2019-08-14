@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import api from './api';
+
+class App extends Component {
+  state = {
+    chars: []
+  }
+
+  componentDidMount() {
+    this.loadCharacters();
+  }
+  
+  loadCharacters = async () => {
+    const res = await api.get('/character');
+
+    this.setState({
+      chars: res.data.results
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.chars.map(char => (
+          <div className="card">
+            <img key={char.id} src={char.image} alt={char.name} className="card__image"/>
+            <h3>{char.name}</h3>
+            <p>{char.species}</p>
+            <p>{char.origin.name}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
