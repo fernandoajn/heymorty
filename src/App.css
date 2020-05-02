@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background: url('./images/bg.png');
+  /* background: url('./images/bg.png'); */
   background-size: cover;
   justify-content: center;
 }
@@ -15,11 +15,11 @@
   margin: 1em;
   background: white;
   box-shadow: 1px 1px 5px #ccc;
-  transition: 0.5s;
+  transition: ease 0.4s;
 }
 
 .card:hover {
-  transform: rotate(2deg) scale(1.1);
+  transform: rotate(2deg) scale(1.05);
   box-shadow: 1px 1px 20px #ccc;
 }
 
