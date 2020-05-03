@@ -39,7 +39,7 @@ class CharsList extends Component {
           hasMore={true}
           loader={<h4>Loading...</h4>}
           >
-          {this.state.chars.map(char => <Card char={char}/>)}
+          {this.state.chars.map(char => <Card key={char.id} char={char}/>)}
         </InfiniteScroll>
     )
   }

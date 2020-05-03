@@ -1,7 +1,7 @@
 body {
-  background: rgba(0, 0, 0, 0.8) url('./images/background2.jpg') no-repeat fixed center;
-  background-size: 100% 100vh;
-  background-blend-mode: overlay;
+  background: rgba(0, 0, 0, 0.4) url('./images/background.jpg') no-repeat fixed center;
+  background-size: cover;
+  background-blend-mode: multiply;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,6 +11,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+  cursor: pointer;
 }
 
 * {

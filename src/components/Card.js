@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
 
+import api from '../services/api';
+
 class Card extends Component {
+  state = {
+    origin: null,
+    showOrigin: true
+  }
+
+  handleLocation = async () => {
+    const { origin } = this.props.char;
+
+    const locationId = origin.url.split('/')[5];
+
+    if (!this.state.origin) {
+      const response = await api.get(`/location/${locationId}`);
+
+      this.setState({
+        origin: response.data
+      })
+    }
+    
+    this.setState(prevState => ({
+      // showOrigin: !prevState.showOrigin
+    }));
+  }
+
   render() {
     const { char } = this.props;
+    const { origin } = this.state; 
 
     return (
       <div className="card" key={char.id}>
         <div className="card_image_container">
           <img src={char.image} alt={char.name} className="card__image"/>
 
-          <a href={`https://rickandmorty.fandom.com/wiki/${char.name}`} target="_blank">
+          <a href={`https://rickandmorty.fandom.com/wiki/${char.name}`}>
             <div>
               <h3>{char.name}</h3>
               <p>{char.type}</p>
@@ -33,7 +59,17 @@ class Card extends Component {
         </div>
 
         <div className="card_footer">
-          <span>{char.origin.name}</span>
+          <button type="button" onClick={this.handleLocation}>{char.origin.name}</button>
+              <div>
+                <span>Dimension: </span>
+                <span>{origin && origin.dimension}</span>
+              </div>
+
+              <div>
+                <span>Type: </span>
+                <span>{origin && origin.type}</span>
+              </div>
+
         </div>
       </div>
     )
