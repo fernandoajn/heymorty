@@ -1,7 +1,7 @@
 .App {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 90%;
   justify-content: center;
   margin: 0 auto;
 }
@@ -17,7 +17,6 @@
 }
 
 .card:hover {
-  transform: scale(1.05);
   box-shadow: 1px 1px 20px #333;
 }
 
@@ -37,7 +36,7 @@
   position: relative;
 }
 
-.card_image_container > div {
+.card_image_container > a > div {
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -47,7 +46,7 @@
   color: white;
 }
 
-.card_image_container > div > p {
+.card_image_container > a > div > p {
   color: #ccc;
 }
 
@@ -75,11 +74,10 @@
 .card__info > div > span:nth-child(2) {
   color: rgb(255, 152, 0);
   font-weight: bold;
-  /* font-size: .9em; */
 }
 
 .card_footer {
-  color: #000;
+  color: #111;
   background-color: rgba(255, 152, 0, 0.8);
   padding: 3px 0;
 }

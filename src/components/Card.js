@@ -9,10 +9,12 @@ class Card extends Component {
         <div className="card_image_container">
           <img src={char.image} alt={char.name} className="card__image"/>
 
-          <div>
-            <h3>{char.name}</h3>
-            <p>{char.type}</p>
-          </div>
+          <a href={`https://rickandmorty.fandom.com/wiki/${char.name}`} target="_blank">
+            <div>
+              <h3>{char.name}</h3>
+              <p>{char.type}</p>
+            </div>
+          </a>
         </div>
 
         <div className="card__info">
