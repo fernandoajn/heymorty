@@ -59,17 +59,23 @@ class Card extends Component {
         </div>
 
         <div className="card_footer">
-          <button type="button" onClick={this.handleLocation}>{char.origin.name}</button>
-              <div>
-                <span>Dimension: </span>
-                <span>{origin && origin.dimension}</span>
-              </div>
+          <button type="button" onClick={this.handleLocation}>Get Location</button>
+              <div className="card_footer__info">
+                <div>
+                  <span>Origin: </span>
+                  <span>{char.origin.name}</span>
+                </div>
+            
+                <div>
+                  <span>Dimension: </span>
+                  <span>{origin && origin.dimension}</span>
+                </div>
 
-              <div>
+                <div>
                 <span>Type: </span>
                 <span>{origin && origin.type}</span>
               </div>
-
+              </div>
         </div>
       </div>
     )

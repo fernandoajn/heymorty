@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Card from './Card';
+import Modal from 'react-modal';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import api from '../services/api';
