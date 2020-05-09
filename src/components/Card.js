@@ -5,7 +5,7 @@ import api from '../services/api';
 class Card extends Component {
   state = {
     origin: null,
-    showOrigin: true
+    showOrigin: true,
   }
 
   handleLocation = async () => {
@@ -32,6 +32,7 @@ class Card extends Component {
 
     return (
       <div className="card" key={char.id}>
+        
         <div className="card_image_container">
           <img src={char.image} alt={char.name} className="card__image"/>
 
@@ -60,6 +61,7 @@ class Card extends Component {
 
         <div className="card_footer">
           <button type="button" onClick={this.handleLocation}>Get Location</button>
+          
               <div className="card_footer__info">
                 <div>
                   <span>Origin: </span>
